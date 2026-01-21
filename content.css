@@ -1,0 +1,207 @@
+.translation-icon-btn {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  background: var(--btn-bg, #f8fafb);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  z-index: 2147483646;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    transform 0.1s ease,
+    background 0.2s;
+  border: 1px solid var(--btn-border, #d4dce3);
+  padding: 0;
+  outline: none;
+}
+
+.translation-icon-btn.light {
+  --btn-bg: #ffffff;
+  --btn-border: #e2e8f0;
+  --btn-icon: #0891b2;
+}
+
+.translation-icon-btn.dark {
+  --btn-bg: #1e293b;
+  --btn-border: #334155;
+  --btn-icon: #38bdf8;
+}
+
+.translation-icon-btn.black {
+  --btn-bg: #000000;
+  --btn-border: #262626;
+  --btn-icon: #06b6d4;
+}
+
+.translation-icon-btn.gray {
+  --btn-bg: #4b5563;
+  --btn-border: #6b7280;
+  --btn-icon: #f9fafb;
+}
+
+/* System Theme Support */
+@media (prefers-color-scheme: dark) {
+  .translation-icon-btn.system {
+    --btn-bg: #1e293b;
+    --btn-border: #334155;
+    --btn-icon: #38bdf8;
+  }
+
+  .simple-translate-popup.system {
+    --popup-bg: #1a1e26;
+    --popup-border: #334155;
+    --popup-text: #f1f5f9;
+    --error-color: #f87171;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .translation-icon-btn.system {
+    --btn-bg: #ffffff;
+    --btn-border: #e2e8f0;
+    --btn-icon: #0891b2;
+  }
+
+  .simple-translate-popup.system {
+    --popup-bg: #ffffff;
+    --popup-border: #e2e8f0;
+    --popup-text: #1e293b;
+    --error-color: #dc2626;
+  }
+}
+
+.translation-icon-btn:hover {
+  transform: scale(1.1);
+}
+
+.translation-icon-btn svg {
+  width: 18px;
+  height: 18px;
+  color: var(--btn-icon);
+}
+
+.simple-translate-popup {
+  position: absolute;
+  background: var(--popup-bg);
+  border: 1px solid var(--popup-border);
+  border-radius: 12px;
+  box-shadow:
+    0 10px 25px -5px rgba(0, 0, 0, 0.2),
+    0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  width: 320px;
+  max-width: 90vw;
+  z-index: 2147483647;
+  font-family: var(
+    --popup-font,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif
+  );
+  color: var(--popup-text);
+  overflow: hidden;
+
+  /* Fast & Smooth Animations */
+  opacity: 0;
+  transform: scale(0.96) translateY(4px);
+  transition:
+    opacity 0.15s cubic-bezier(0, 0, 0.2, 1),
+    transform 0.15s cubic-bezier(0, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.simple-translate-popup.visible {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  pointer-events: auto;
+}
+
+.simple-translate-popup.light {
+  --popup-bg: #ffffff;
+  --popup-border: #e2e8f0;
+  --popup-text: #1e293b;
+  --error-color: #dc2626;
+}
+
+.simple-translate-popup.dark {
+  --popup-bg: #1a1e26;
+  --popup-border: #334155;
+  --popup-text: #f1f5f9;
+  --error-color: #f87171;
+}
+
+.simple-translate-popup.black {
+  --popup-bg: #000000;
+  --popup-border: #262626;
+  --popup-text: #ffffff;
+  --error-color: #fca5a5;
+}
+
+.simple-translate-popup.gray {
+  --popup-bg: #4b5563;
+  --popup-border: #6b7280;
+  --popup-text: #f9fafb;
+  --error-color: #fee2e2;
+}
+
+.simple-translate-popup.font-serif {
+  --popup-font: Georgia, serif;
+}
+
+.simple-translate-popup.font-sans {
+  --popup-font: -apple-system, sans-serif;
+}
+
+.simple-translate-popup.font-mono {
+  --popup-font: ui-monospace, monospace;
+}
+
+.translate-content {
+  padding: 16px;
+  font-size: 15px;
+  line-height: 1.6;
+  max-height: 400px;
+  overflow-y: auto;
+  transition: opacity 0.1s ease;
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE/Edge */
+}
+
+.translate-content::-webkit-scrollbar {
+  display: none;
+  /* Chrome/Safari/Brave */
+}
+
+.translate-content.loading {
+  opacity: 0.5;
+}
+
+.translate-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-style: italic;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+.translate-error {
+  color: var(--error-color);
+  font-weight: 500;
+}
