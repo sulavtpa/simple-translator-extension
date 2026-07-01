@@ -6,6 +6,8 @@ An extension for the browser that is lightweight, quick, and privacy-oriented al
 
 RONB posts news in Nepali, I take 10 mins per sentence to read it.. Thats why.. 
 
+<img width="913" height="527" alt="{ED4928E9-6F0E-4120-BDAA-8B7B9A108AF6}" src="https://github.com/user-attachments/assets/af79877f-250b-41f6-b5db-9b1c9a9e19a9" />
+
 ## Installation
 
 ### Option 1: CRX File (Easiest)
